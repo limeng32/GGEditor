@@ -8,6 +8,7 @@ export const CONTEXT_MENU_CONTAINER = 'J_ContextMenuContainer';
 export const FLOW_CLASS_NAME = 'Flow';
 export const MIND_CLASS_NAME = 'Mind';
 export const KONI_CLASS_NAME = 'Koni';
+export const ER_CLASS_NAME = 'Flow';
 
 export const EVENT_BEFORE_ADD_PAGE = 'beforeAddPage';
 export const EVENT_AFTER_ADD_PAGE = 'afterAddPage';

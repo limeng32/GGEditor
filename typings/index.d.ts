@@ -56,6 +56,15 @@ declare module 'gg-editor' {
     noEndEdge?: boolean
   }
 
+  export interface ErProps extends BasicProps {
+    /** 对齐配置 */
+    align?: Align
+    /** 网格线配置 */
+    grid?: Grid
+    /** default: true */
+    noEndEdge?: boolean
+  }
+
   export interface MindProps extends BasicProps {
 
   }
@@ -232,6 +241,9 @@ declare module 'gg-editor' {
 
   /** 流程图  @see http://ggeditor.com/docs/api/flow.zh-CN.html */
   export const Flow: React.ComponentClass<FlowProps & GraphMouseReactEventsProps & GraphOtherReactEventsProps & PageReactEventsProps, any>
+  
+  /** ER图 */
+  export const Er: React.ComponentClass<ErProps & GraphMouseReactEventsProps & GraphOtherReactEventsProps & PageReactEventsProps, any>
 
   /** 思维导图  @see http://ggeditor.com/docs/api/mind.zh-CN.html */
   export const Mind: React.ComponentClass<MindProps & GraphMouseReactEventsProps & GraphOtherReactEventsProps & PageReactEventsProps, any>
