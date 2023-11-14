@@ -26,7 +26,7 @@
     "watch": "webpack --config ./tools/webpack.config.dev.js --watch",
     "build": "node ./scripts/build.js",
     "build:es": "rimraf ./es && babel ./src -d ./es",
-    "build:cjs": "rimraf ./cjs && babel ./src -d ./cjs --plugins @babel/plugin-transform-modules-commonjs",
+    "build:cjs": "rimraf ./cjs && babel ./src -d ./cjs --plugins @babel/plugin-transform-modules-commonjs && xcopy cjs\\ E:\\node\\studio\\node_modules\\gg-editor\\cjs\\ /s /Y && echo 1",
     "build:umd": "rimraf ./dist && webpack --config ./tools/webpack.config.prod.js",
     "build:demo": "rimraf ./demo/dist && webpack --config ./tools/webpack.config.demo.prod.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
