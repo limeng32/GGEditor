@@ -223,6 +223,7 @@ declare module 'gg-editor' {
       executeCommand?(command: EditorCommand)
       read?(data: any)
       save?(): any
+      modal?(): any
       add?(type: any, model: any)
       find?(id: any)
       update?(item: any, model: any)

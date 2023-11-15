@@ -1,3 +1,15 @@
+/* eslint-disable arrow-spacing */
+/* eslint-disable react/jsx-closing-tag-location */
+/* eslint-disable react/jsx-indent */
+/* eslint-disable no-undef */
+/* eslint-disable linebreak-style */
+/* eslint-disable import/newline-after-import */
+/* eslint-disable no-unused-vars */
+/* eslint-disable block-spacing */
+/* eslint-disable semi */
+/* eslint-disable key-spacing */
+/* eslint-disable object-curly-spacing */
+/* eslint-disable react/no-unused-state */
 import React from 'react';
 import Editor from '@components/Base/Editor';
 import {
@@ -11,7 +23,7 @@ import Global from '@common/Global';
 import GGEditorContext from '@common/context/GGEditorContext';
 import PropsAPIContext from '@common/context/PropsAPIContext';
 import PropsAPI from '@common/context/PropsAPIContext/propsAPI';
-
+import { Modal } from 'antd';
 class GGEditor extends React.Component {
   static setTrackable(value) {
     Global.set('trackable', Boolean(value));
@@ -25,7 +37,9 @@ class GGEditor extends React.Component {
 
   constructor(props) {
     super(props);
-
+    this.state = {
+      isModalOpen1: true,
+    };
     this.init();
     this.bindEvent();
   }
@@ -55,6 +69,8 @@ class GGEditor extends React.Component {
       editor: this.editor,
       onBeforeAddPage: this.handleBeforeAddPage,
       onAfterAddPage: this.handleAfterAddPage,
+      asd: this.state.isModalOpen1,
+      setAsd: (a)=>{this.setState({isModalOpen1:a})},
     };
     this.propsAPI = new PropsAPI(this.editor);
   }
@@ -71,13 +87,25 @@ class GGEditor extends React.Component {
 
   render() {
     const { children } = this.props;
-
+    const handleOk = () => {
+      this.setState({isModalOpen1:false});
+    };
+    const handleCancel = () => {
+      this.setState({isModalOpen1:false});
+    };
     return (
+      <>
+      <Modal title="Basic Modal" open={this.state.isModalOpen1} onOk={handleOk} onCancel={handleCancel}>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+      </Modal>
       <GGEditorContext.Provider value={this.ggEditor}>
         <PropsAPIContext.Provider value={this.propsAPI}>
           <div {...pick(this.props, ['style', 'className'])}>{children}</div>
         </PropsAPIContext.Provider>
       </GGEditorContext.Provider>
+      </>
     );
   }
 }

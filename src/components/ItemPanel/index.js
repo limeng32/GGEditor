@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable arrow-spacing */
 /* eslint-disable space-infix-ops */
 /* eslint-disable object-curly-spacing */
@@ -16,15 +17,11 @@ import React from 'react';
 import { pick } from '@utils';
 import withGGEditorContext from '@common/context/GGEditorContext/withGGEditorContext';
 import Item from './Item';
-import { Modal } from 'antd';
 class ItemPanel extends React.Component {
   page = null;
 
   constructor(props) {
     super(props);
-    this.state = {
-      isModalOpen: true,
-  };
     this.bindEvent();
   }
 
@@ -48,19 +45,8 @@ class ItemPanel extends React.Component {
 
   render() {
     const { children } = this.props;
-    const handleOk = () => {
-      this.setState({isModalOpen:false});
-    };
-    const handleCancel = () => {
-      this.setState({isModalOpen:false});
-    };
     return (
       <div id={this.containerId} {...pick(this.props, ['style', 'className'])}>
-        <Modal title="Basic Modal" open={this.state.isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-        </Modal>
         {children}
       </div>
     );
